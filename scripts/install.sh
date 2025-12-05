@@ -69,7 +69,7 @@ function install_argocd() {
 
     # Add and update the ArgoCD Helm repository
     echo "Adding ArgoCD Helm repository..."
-    helm repo add argo https://argoproj.github.io/argo-helm
+    helm repo add argo https://argoproj.github.io/argo-helm > /dev/null
     helm repo update > /dev/null
 
     # Install ArgoCD using the Helm chart
