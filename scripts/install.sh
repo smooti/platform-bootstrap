@@ -59,12 +59,10 @@ function install_external_secrets() {
 }
 
 # Final Instructions
-function final_instructions() {
-    echo "--------------------------------------------------------"
-    
+function final_instructions() { 
     # Get the initial password for the 'admin' user
     initial_password=$(kubectl get secret argocd-initial-admin-secret -n "${ARGOCD_NAMESPACE}" -o jsonpath="{.data.password}" | base64 -d)
-    
+    echo "--------------------------------------------------------"
     echo "ArgoCD Credentials:"
     echo "  Username: admin"
     echo "  Initial Password: ${initial_password}"
