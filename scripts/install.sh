@@ -26,7 +26,7 @@ EXTERNAL_SECRETS_CHART_VERSION="1.1.1"
 REPO_ROOT=$(git rev-parse --show-toplevel)
 source "${REPO_ROOT}/scripts/utilities.sh"
 
-# Install ArgoCD Core Components using Helm
+# Install ArgoCD using Helm
 function install_argocd() {
     echo -e "🔄 ${BOLD}${GREEN}Installing ArgoCD...${NC}"
 
@@ -43,6 +43,7 @@ function install_argocd() {
     echo -e "✅ ${BOLD}${BLUE}ArgoCD successfully installed.${NC}"
 }
 
+# Install External Secrets Operator using Helm
 function install_external_secrets() {
 	echo -e "${BOLD}${GREEN}🔄 Installing External Secrets...${NC}"
 	helm repo add external-secrets "https://charts.external-secrets.io" > /dev/null
