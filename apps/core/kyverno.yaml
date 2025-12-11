@@ -16,7 +16,7 @@ spec:
 
     # 2. Git repo source (for your values)
     - repoURL: https://github.com/<you>/<repo>.git
-      targetRevision: HEAD
+      targetRevision: argo
       ref: values     # <--- makes $values available
 
   destination:
