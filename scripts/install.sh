@@ -77,5 +77,5 @@ function final_instructions() {
 # --- Main Execution ---
 echo -e "\n${BOLD}${BLUE}🚀 Starting installation process...${NC}"
 install_argocd
-install_external_secrets
+# install_external_secrets
 final_instructions
