@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: kyverno
       valueFiles:
-        - ../../helm-values/kyverno.yaml
+        - helm-values/kyverno.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kyverno
