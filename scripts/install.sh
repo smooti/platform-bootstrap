@@ -58,6 +58,14 @@ function install_external_secrets() {
 	echo -e "✅ ${BOLD}${BLUE}External-Secrets Operator successfully installed.${NC}"
 }
 
+function install_app_of_apps() {
+		echo -e "🔄 ${BOLD}${GREEN}Installing ArgoCD Application of Applications...${NC}"
+
+		kubectl apply -f "${REPO_ROOT}/apps/argo-root/root-application.yaml" > /dev/null
+
+		echo -e "✅ ${BOLD}${BLUE}ArgoCD Application of Applications successfully installed.${NC}"
+}
+
 # Final Instructions
 function final_instructions() { 
     # Get the initial password for the 'admin' user
@@ -78,4 +86,5 @@ function final_instructions() {
 echo -e "\n${BOLD}${BLUE}🚀 Starting installation process...${NC}"
 install_argocd
 # install_external_secrets
+install_app_of_apps
 final_instructions
