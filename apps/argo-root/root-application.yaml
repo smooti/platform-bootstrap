@@ -4,10 +4,10 @@ metadata:
   name: platform-root
   namespace: argocd
 spec:
-  project: platform
+  project: default
   source:
-    repoURL: https://github.com/smooti/platform-bootstrap
-    path: apps/core
+    repoURL: https://github.com/smooti/platform-bootstrap.git
+    path: apps/argo-root
     targetRevision: argo
   destination:
     namespace: argocd
@@ -16,3 +16,13 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  sources:
+    # 1. Sync Projects first
+    - repoURL: https://github.com/smooti/platform-bootstrap.git
+      targetRevision: argo
+      path: projects
+
+    # 2. Sync ArgoCD second (self-management)
+    - repoURL: https://github.com/smooti/platform-bootstrap.git
+      targetRevision: argo
+      path: apps/core
