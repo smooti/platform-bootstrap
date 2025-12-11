@@ -28,3 +28,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true  # Moves the apply logic to the Kubernetes API server and avoid storing the last-applied-configuration annotation
