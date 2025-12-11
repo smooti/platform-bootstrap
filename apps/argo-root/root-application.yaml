@@ -6,9 +6,9 @@ metadata:
 spec:
   project: platform
   source:
-    repoURL: https://github.com/smooti/platform-services
-    path: environments/dev
-    targetRevision: main
+    repoURL: https://github.com/smooti/platform-bootstrap
+    path: apps/core
+    targetRevision: argo
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
