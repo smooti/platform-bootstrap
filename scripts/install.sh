@@ -26,21 +26,6 @@ function install_argocd() {
     echo -e "✅ ${BOLD}${BLUE}ArgoCD successfully installed.${NC}"
 }
 
-# Install External Secrets Operator using Helm
-function install_external_secrets() {
-	echo -e "${BOLD}${GREEN}🔄 Installing External Secrets...${NC}"
-	helm repo add external-secrets "https://charts.external-secrets.io" > /dev/null
-	helm repo update > /dev/null
-	helm upgrade --install --wait external-secrets external-secrets/external-secrets \
-		--namespace external-secrets --create-namespace \
-		--version $EXTERNAL_SECRETS_CHART_VERSION > /dev/null
-
-	echo -e "${YELLOW}⏳ Waiting for External Secrets to be healthy...${NC}"
-	kubectl wait --for=condition=available deployment/external-secrets -n external-secrets --timeout=300s > /dev/null
-
-	echo -e "✅ ${BOLD}${BLUE}External-Secrets Operator successfully installed.${NC}"
-}
-
 function install_app_of_apps() {
 		echo -e "🔄 ${BOLD}${GREEN}Installing ArgoCD Application of Applications...${NC}"
 
@@ -68,6 +53,5 @@ function final_instructions() {
 # --- Main Execution ---
 echo -e "\n${BOLD}${BLUE}🚀 Starting installation process...${NC}"
 install_argocd
-# install_external_secrets
 install_app_of_apps
 final_instructions
