@@ -11,7 +11,7 @@ spec:
     targetRevision: v1.19.2
     helm:
       valueFiles:
-        - ../../helm-values/cert-manager.yaml
+        - ../helm-values/cert-manager.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
