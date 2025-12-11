@@ -15,7 +15,7 @@ spec:
           - $values/helm-values/kyverno.yaml
 
     # 2. Git repo source (for your values)
-    - repoURL: https://github.com/<you>/<repo>.git
+    - repoURL: https://github.com/smooti/platform-bootstrap.git
       targetRevision: argo
       ref: values     # <--- makes $values available
 
