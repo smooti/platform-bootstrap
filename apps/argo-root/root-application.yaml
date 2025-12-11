@@ -6,6 +6,7 @@ metadata:
 spec:
   project: default
   source:
+    # Sync Root Application first
     repoURL: https://github.com/smooti/platform-bootstrap.git
     path: apps/argo-root
     targetRevision: argo
@@ -17,12 +18,12 @@ spec:
       prune: true
       selfHeal: true
   sources:
-    # Sync Projects first
+    # Sync projects
     - repoURL: https://github.com/smooti/platform-bootstrap.git
       targetRevision: argo
       path: projects
 
-    # Sync ArgoCD second (self-management)
+    # Sync core apps
     - repoURL: https://github.com/smooti/platform-bootstrap.git
       targetRevision: argo
       path: apps/core
