@@ -1,23 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-<<COMMENT_BLOCK
-	# Default: no port forwarding
-	./install.sh
-
-	# Enable port forwarding on default port 8080
-	./install.sh --port-forward
-
-	# Enable port forwarding on custom port 9000
-	./install.sh --port-forward --port 9000
-
-	# Set environment and enable port forwarding
-	./install.sh --env staging --port-forward --port 8080
-
-	# View help
-	./install.sh --help
-COMMENT_BLOCK
-
 # Default values
 ARGOCD_NAMESPACE="argocd"
 ARGOCD_CHART_VERSION="9.1.5"
