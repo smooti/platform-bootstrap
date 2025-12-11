@@ -16,7 +16,7 @@ spec:
 
     # 2. Git repo source (for your values)
     - repoURL: https://github.com/smooti/platform-bootstrap.git
-      targetRevision: argo
+      targetRevision: HEAD
       ref: values     # <--- makes $values available
 
   destination:

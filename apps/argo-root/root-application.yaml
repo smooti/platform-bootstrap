@@ -9,7 +9,7 @@ spec:
     # Sync Root Application first
     repoURL: https://github.com/smooti/platform-bootstrap.git
     path: apps/argo-root
-    targetRevision: argo
+    targetRevision: HEAD
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
@@ -20,10 +20,10 @@ spec:
   sources:
     # Sync projects
     - repoURL: https://github.com/smooti/platform-bootstrap.git
-      targetRevision: argo
+      targetRevision: HEAD
       path: projects
 
     # Sync core apps
     - repoURL: https://github.com/smooti/platform-bootstrap.git
-      targetRevision: argo
+      targetRevision: HEAD
       path: apps/core
