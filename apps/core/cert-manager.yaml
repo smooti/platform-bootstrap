@@ -5,13 +5,20 @@ metadata:
   namespace: argocd
 spec:
   project: platform
-  source:
-    repoURL: https://charts.jetstack.io
-    chart: cert-manager
-    targetRevision: v1.19.2
-    helm:
-      valueFiles:
-        - helm-values/cert-manager.yaml
+  sources:
+    # 1. Helm chart source
+    - repoURL: https://charts.jetstack.io
+      chart: cert-manager
+      targetRevision: v1.19.2
+      helm:
+        valueFiles:
+          - $values/helm-values/cert-manager.yaml
+
+    # 2. Git repo source (for your values)
+    - repoURL: https://github.com/<you>/<repo>.git
+      targetRevision: HEAD
+      ref: values     # <--- makes $values available
+
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager

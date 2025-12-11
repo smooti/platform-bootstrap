@@ -5,14 +5,20 @@ metadata:
   namespace: argocd
 spec:
   project: platform
-  source:
-    repoURL: https://kyverno.github.io/kyverno/
-    chart: kyverno
-    targetRevision: 3.6.1
-    helm:
-      releaseName: kyverno
-      valueFiles:
-        - helm-values/kyverno.yaml
+  sources:
+    # 1. Helm chart source
+    - repoURL: https://kyverno.github.io/kyverno/
+      chart: kyverno
+      targetRevision: 3.6.1
+      helm:
+        valueFiles:
+          - $values/helm-values/kyverno.yaml
+
+    # 2. Git repo source (for your values)
+    - repoURL: https://github.com/<you>/<repo>.git
+      targetRevision: HEAD
+      ref: values     # <--- makes $values available
+
   destination:
     server: https://kubernetes.default.svc
     namespace: kyverno
